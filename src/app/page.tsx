@@ -118,7 +118,7 @@ export default function Home() {
             </NextLink>
           </ChakraLink>
 
-          <Text> @ 2026 AutoShine Estética Automotiva. Todos os direitos reservados.</Text>
+          <Text> © 2026 AutoShine Estética Automotiva. Todos os direitos reservados.</Text>
       </VStack>
     </>
   );
