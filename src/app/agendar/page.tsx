@@ -56,11 +56,7 @@ export default function Agendar() {
             All steps are complete!
           </Steps.CompletedContent>
 
-          <ButtonGroup size="sm" variant="outline">
-            <Steps.PrevTrigger asChild>
-              <Button>Prev</Button>
-            </Steps.PrevTrigger>
-
+          <ButtonGroup w="100%" size="sm" variant="outline">
             <Steps.NextTrigger asChild>
               <Button>Next</Button>
             </Steps.NextTrigger>
