@@ -1,13 +1,13 @@
 "use client"
 
-import { Button, Heading, VStack, Text, ButtonGroup } from "@chakra-ui/react";
+import { Button, Heading, VStack, Text, ButtonGroup, HStack } from "@chakra-ui/react";
 import { LuArrowLeft } from "react-icons/lu";
 import { Steps, useSteps } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 
 export default function Agendar() {
   const steps = useSteps({
-    defaultStep: 1,
+    defaultStep: 0,
     count: items.length,
   });
 
@@ -55,16 +55,11 @@ export default function Agendar() {
           <Steps.CompletedContent>
             All steps are complete!
           </Steps.CompletedContent>
-
-          <ButtonGroup size="sm" variant="outline">
-            <Steps.PrevTrigger asChild>
-              <Button>Prev</Button>
-            </Steps.PrevTrigger>
-
+          <HStack w="100%" justify="end">
             <Steps.NextTrigger asChild>
-              <Button>Next</Button>
+                <Button size="lg" colorPalette="yellow" rounded="lg">Continuar</Button>
             </Steps.NextTrigger>
-          </ButtonGroup>
+          </HStack>
         </Steps.RootProvider>
       </VStack>
     </VStack>
