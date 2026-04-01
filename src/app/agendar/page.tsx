@@ -55,7 +55,8 @@ export default function Agendar() {
           <Steps.CompletedContent>
             All steps are complete!
           </Steps.CompletedContent>
-          <HStack w="100%" justify="end">
+
+          <ButtonGroup w="100%" size="sm" variant="outline">
             <Steps.NextTrigger asChild>
                 <Button size="lg" colorPalette="yellow" rounded="lg">Continuar</Button>
             </Steps.NextTrigger>
