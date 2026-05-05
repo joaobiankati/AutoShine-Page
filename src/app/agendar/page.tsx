@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Heading, VStack, Text, ButtonGroup, HStack } from "@chakra-ui/react";
+import { Button, Heading, VStack, Text, ButtonGroup, HStack, Separator } from "@chakra-ui/react";
 import { LuArrowLeft } from "react-icons/lu";
 import { Steps, useSteps } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
@@ -14,7 +14,7 @@ export default function Agendar() {
   const router = useRouter();
 
   function handleGoToPrevStep() {
-    if (steps.value > 1) {
+    if (steps.hasPrevStep) {
         steps.goToPrevStep()
     } else {
         router.push("/")
@@ -23,7 +23,7 @@ export default function Agendar() {
 
   return (
     <VStack as="main" gap={0}>
-      <VStack w="100vw" as="section" align="start" pt={28} pb={16} px={6}>
+      <VStack w="100%" maxW={1440} mx="auto" as="section" align="start" pt={28} pb={16} px={6}>
         <Button onClick={handleGoToPrevStep} variant="ghost" rounded="lg" mb={6}>
             <LuArrowLeft />
             {steps.value > 1 ? "Voltar": "Inicio"}
@@ -32,16 +32,14 @@ export default function Agendar() {
         <Heading as="h1" fontSize="4xl">Agendar Serviço</Heading>
         
 
-        {!steps.isCompleted && <Text>Passo {steps.value + 1} de {steps.count}</Text>}
-        {steps.isCompleted && <Text>Completo!</Text>}
+        {!steps.isCompleted && <Text mb={8}>Passo {steps.value + 1} de {steps.count}</Text>}
+        {steps.isCompleted && <Text mb={8}>Completo!</Text>}
 
         <Steps.RootProvider value={steps}>
-          <Steps.List>
+          <Steps.List gap={4}>
             {items.map((step, index) => (
-              <Steps.Item key={index} index={index} title={step.title}>
-                <Steps.Indicator />
-                <Steps.Title>{step.title}</Steps.Title>
-                <Steps.Separator />
+              <Steps.Item flex={1} key={index} index={index} title={step.title}>
+                <Separator w="100%" borderColor={steps.value >= index ? "yellow" : "white"} borderWidth={2}/>
               </Steps.Item>
             ))}
           </Steps.List>
